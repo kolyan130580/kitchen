@@ -1,14 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Kitchen</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title><%= @title %></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
+
+    <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body id="<%= @body_id %>">
+    <!--==============================header=================================-->
+    <header>
+        <div class="row-top">
+            <div class="main">
+                <div class="wrapper">
+                    <h1><a href="<%= home_path %>">Catering<span>.com</span></a></h1>
+                    <nav>
+                        <ul class="menu">
+                            <li><a class="<%= 'active' if @body_id == 'page1' %>" href="<%= home_path %>">About</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page2' %>" href="<%= menu_path %>">Menu</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page3' %>" href="<%= catalog_path %>">Catalogue </a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page4' %>" href="<%= shipping_path %>">Shipping</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page5' %>" href="<%= faq_path %>">FAQ </a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page6' %>" href="<%= contact_path %>">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row-bot">
+            <div class="row-bot-bg">
+                <div class="main">
+                    <h2>Impressive Selection <span>for any Occasion</span></h2>
+                    <% if @body_id == 'page1' %>
+	                    <div class="slider-wrapper">
+	                        <div class="slider">
+	                            <ul class="items">
+	                                <li>
+	                                    <img src="images/slider-img1.jpg" alt="" />
+	                                </li>
+	                                <li>
+	                                    <img src="images/slider-img2.jpg" alt="" />
+	                                </li>
+	                                <li>
+	                                    <img src="images/slider-img3.jpg" alt="" />
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!--==============================content================================-->
+	<%= yield %>
+	<!--==============================footer=================================-->
+    <footer>
+        <div class="main">
+            <div class="aligncenter">
+                <span>Catering.com &copy; 2012</span>
+                <a rel="nofollow" class="link" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
