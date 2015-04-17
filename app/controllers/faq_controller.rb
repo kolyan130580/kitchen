@@ -1,5 +1,8 @@
 class FaqController < ApplicationController
-
+	
+	before_action :elem_body_id
+	before_action :title_name
+	
 	protected
 
 		def title_name

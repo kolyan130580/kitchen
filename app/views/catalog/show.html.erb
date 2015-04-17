@@ -1,0 +1,38 @@
+<script src="/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/js/cufon-yui.js" type="text/javascript"></script>
+<script src="/js/cufon-replace.js" type="text/javascript"></script> 
+<script src="/js/Good_Vibes_Pro_400.font.js" type="text/javascript"></script>
+<script src="/js/FF-cash.js" type="text/javascript"></script>  
+<script src="/js/hover-image.js" type="text/javascript"></script>
+<script src="/js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/jquery.json.js"></script>  
+<script type="text/javascript" src="/js/basket.js"></script>
+
+<!--[if lt IE 8]>
+<div style=' clear: both; text-align:center; position: relative;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+        <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+    </a>
+</div>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+<section id="content">
+	<div class="main">
+		<div class="wrapper">
+			<h3 class="prev-indent-bot"><%= @dish.name %></h3>
+			<div class="wrapper img-indent-bot">
+                <figure class="img-indent"><img src="<%= @dish.image.url(:large) %>" alt=""></figure>
+                <div class="extra-wrap">
+                    <h5><%= @dish.name %></h5>
+                    <%= @dish.description %>
+                </div>
+                <p class="p2"><strong class="color-2">Цена: <%= @dish.price %> грн. / Порция: <%= @dish.portion %></strong></p>
+                <a class="button-1" id="btn_basket_<%= @dish.id %>" href="javascript:void(0);">Добавить в корзину</a>
+            </div>          
+		</div>
+	</div>
+</section>
+

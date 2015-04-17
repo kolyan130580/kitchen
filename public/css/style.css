@@ -39,7 +39,7 @@ a:hover {text-decoration:none;}
 }
  
 p {margin-bottom:18px;}
-.p1 {margin-bottom:8px;}
+.p1 {margin-bottom:8px; width: 210px; height: 75px; overflow: hidden;}
 .p2 {margin-bottom:15px;}
 .p3 {margin-bottom:30px;}
 .p4 {margin-bottom:40px;}
@@ -337,10 +337,21 @@ dl span {float:left; width:96px; font-weight:bold;}
 	text-decoration:none;
 	position:absolute;
 	z-index:99;
-	left:63px;
+	right:0px;
 	bottom:4px;
 }
-.bx-prev {display:none !important;}
+.bx-prev {
+	display:inline-block;
+	font-size:19px;
+	line-height:1.2em;
+	color:#72ad1a;
+	text-transform:capitalize;
+	text-decoration:none;
+	position:absolute;
+	z-index:99;
+	left:0px;
+	bottom:4px;
+}
 
 .bx-pager {padding:16px 0 0 0; text-align:center;}
 	#page3 .bx-pager {text-align:right; padding:23px 20px 0 0;}

@@ -3,9 +3,9 @@
 <head>
     <title><%= @title %></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen"> 
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css" media="screen"> 
 
     <%= csrf_meta_tags %>
 </head>
@@ -15,15 +15,17 @@
         <div class="row-top">
             <div class="main">
                 <div class="wrapper">
-                    <h1><a href="<%= home_path %>">Catering<span>.com</span></a></h1>
+                    <h1><a href="<%= home_path %>">Кухня<span>.com</span></a></h1>
+                    <span class="call">Звоните:</span><span class="num"> (068)111-11-11, (069)222-22-22</span>
                     <nav>
                         <ul class="menu">
-                            <li><a class="<%= 'active' if @body_id == 'page1' %>" href="<%= home_path %>">About</a></li>
-                            <li><a class="<%= 'active' if @body_id == 'page2' %>" href="<%= menu_path %>">Menu</a></li>
-                            <li><a class="<%= 'active' if @body_id == 'page3' %>" href="<%= catalog_path %>">Catalogue </a></li>
-                            <li><a class="<%= 'active' if @body_id == 'page4' %>" href="<%= shipping_path %>">Shipping</a></li>
-                            <li><a class="<%= 'active' if @body_id == 'page5' %>" href="<%= faq_path %>">FAQ </a></li>
-                            <li><a class="<%= 'active' if @body_id == 'page6' %>" href="<%= contact_path %>">Contact</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page1' %>" href="<%= home_path %>">О нас</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page2' %>" href="<%= menu_path %>">Меню</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page3' %>" href="<%= catalog_path %>">Каталог</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page4' %>" href="<%= shipping_path %>">Доставка</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page5' %>" href="<%= faq_path %>">FAQ</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page6' %>" href="<%= contact_path %>">Контакты</a></li>
+                            <li><a class="<%= 'active' if @body_id == 'page7' %>" href="<%= basket_path %>">Корзина</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -32,7 +34,7 @@
         <div class="row-bot">
             <div class="row-bot-bg">
                 <div class="main">
-                    <h2>Impressive Selection <span>for any Occasion</span></h2>
+                    <h2>Выбирайте блюда <span>на любой вкус</span></h2>
                     <% if @body_id == 'page1' %>
 	                    <div class="slider-wrapper">
 	                        <div class="slider">
@@ -67,5 +69,13 @@
         </div>
     </footer>
     <script type="text/javascript"> Cufon.now(); </script>
+    <style>
+        .call {
+            color: #c52e02;
+        }
+        .num {
+            color: #fff;
+        }
+    </style>
 </body>
 </html>

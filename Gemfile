@@ -12,8 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 # gem 'pg_search'
-# gem 'activeadmin', github: 'gregbell/active_admin'
-# gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
 gem 'paperclip'
 # gem "cocoon"
 # gem 'sendgrid'

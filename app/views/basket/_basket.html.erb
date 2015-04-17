@@ -1,0 +1,54 @@
+<h3 class="prev-indent-bot">Корзина</h3>
+<h4><%= flash[:notice] %></h4>
+<%= form_tag basket_order_path do %>
+	<div class="user_box">
+		<h5><%= label_tag(:user_name, "Ваше имя:") %></h5>
+		<%= text_field_tag :user_name, "", class: 'input' %>
+		<h5><%= label_tag(:user_phone, "Ваш телефон:") %></h5>
+		<%= text_field_tag :user_phone, "", class: 'input' %>
+		<h5><%= label_tag(:address, "Ваш адрес:") %></h5>
+		<%= text_area_tag :address, "", class: 'input' %>
+	</div>
+	<% @dishes.each do |dish| %>
+		<div class='dish_box' id='dish_<%= dish.id %>'>
+			<div class="wrapper img-indent-bot">
+			<a class="button-1 dish_remove" id="btn_basket_<%= dish.id %>" href="javascript:void(0);">Удалить из корзины</a>
+		        <figure class="img-indent"><img src="<%= dish.image.url(:thumb) %>" alt=""></figure>
+		        <div class="extra-wrap">
+		            <h5><%= dish.name %></h5>
+		            <%= dish.annotation %>
+		        </div>
+		        <p class="p2"><strong class="color-2">Цена: <%= dish.price %> грн. / Порция: <%= dish.portion %> | Количество порций: <%= number_field_tag "order[#{dish.id}][dish_num]", 1, {class: "dish_num", min: 1, 'data-price' => "#{dish.price}"} %></strong></p>
+		    </div> 
+		</div>    
+	<% end %>
+	<h3 class="prev-indent-bot color-2 price">Всего: <%= @dishes.map{ |dish| dish.price }.inject(0){ |result, elem| result + elem } %> грн.</h3>
+	<%= submit_tag "Отправить", class: 'button-1' %>
+<% end %>
+
+<style>
+	.button-1 {
+		float:right;
+		margin-top: 20px;
+		border: none;
+	}
+	.dish_num {
+		border: 1px solid #7f7f7f;
+		border-radius: 5px;
+		width: 50px;
+		padding-left: 5px;
+	}
+	.input {
+		border: 1px solid #7f7f7f;
+		border-radius: 5px;
+		min-height: 20px;
+		min-width: 200px;
+		max-width: 200px;
+		padding: 3px;
+	}
+	.user_box {
+		width: 200px;
+		/*margin-bottom: 20px;*/
+		margin: 20px auto;
+	}
+</style>

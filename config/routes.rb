@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,10 +9,15 @@ Rails.application.routes.draw do
 
   get 'home' => 'home#index'
   get 'menu' => 'menu#index'
+  get 'menu/special_offers' => 'menu#special_offers', as: :menu_special_offers
   get 'catalog' => 'catalog#index'
+  get 'catalog/:id' => 'catalog#show', as: :catalog_show 
   get 'shipping' => 'shipping#index'
   get 'faq' => 'faq#index'
   get 'contact' => 'contact#index'
+  get 'basket' => 'basket#index'
+  post 'basket/dishes' => 'basket#dishes'
+  post 'basket/order' => 'basket#order'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
